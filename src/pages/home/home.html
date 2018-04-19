@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      Native Demo
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<!-- 下拉刷新 -->
+<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="正在努力加载中...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <button ion-button icon-left full (tap)="fndoBroadcaster()">
+    <ion-icon name="cloud-upload"></ion-icon>
+    广播测试
+  </button>
+  <!-- 文件上传下载 -->
+  <button ion-button icon-left full (tap)="fnSelectfile()">
+    <ion-icon name="folder"></ion-icon>
+    选择文件
+  </button>
+
+  <button ion-button icon-left full (tap)="fndoUpload()" [disabled]="isUpload">
+    <ion-icon name="cloud-upload"></ion-icon>
+    文件上传
+  </button>
+  
+
+  <button ion-button icon-left full (tap)="fnDownload()">
+    <ion-icon name="cloud-download"></ion-icon>
+    文件下载
+  </button>
+
+  
+
+  <ion-card>
+     
+      <img *ngIf="imgsrc !=''" imageViewer  src="http://1876p33v89.iok.la:1024/{{imgsrc}}"/>
+      <img  *ngIf="durl !=''" imageViewer src="{{durl}}"/>
+  </ion-card>
+
+<!-- 垂直滑动 -->
+<ion-scroll scrollY="true" style="width: 100%; height: 250px;">
+    <div class="map" >
+      <div class="item-v" *ngFor="let item of testdiv"> {{item}}</div>
+    </div>
+</ion-scroll>
+
+  <!-- itemslide滑动 -->
+  <ion-list>
+    <ion-item-sliding #item>
+      <ion-item>
+       可以右滑哟
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button (click)="favorite(item)">
+          <ion-icon name="archive"></ion-icon>
+          分享
+        </button>
+        <button ion-button color="danger" (click)="share(item)">删除</button>
+      </ion-item-options>
+      
+    </ion-item-sliding>
+  </ion-list>
+
+<!-- 水平滑动 -->
+<!-- 解决长度方法,动态计算长度赋值给WIDTH -->
+<ion-scroll scrollX="true" style="width: 100%; height: 100%;">
+    <div class="map-div">
+           <div class="itemchild" *ngFor="let item of testdiv">
+             {{item}}
+           </div>
+          <!-- <div class="itemchild"></div>
+          <div class="itemchild"></div> -->
+    </div>
+</ion-scroll>
+
+
+
+  <!-- 常用组件 -->
+  <ion-fab right middle>
+      <button ion-fab color="light"><ion-icon name="attach"></ion-icon></button>
+      <ion-fab-list side="top" (tap)="fngoui()">
+        <button ion-fab color="danger">UI</button>
+      </ion-fab-list>
+      <ion-fab-list side="bottom" (tap)="fngotaps()">
+        <button ion-fab color="secondary">tabs</button>
+      </ion-fab-list>
+      <ion-fab-list side="left">
+        <button ion-fab color="light"><ion-icon name="logo-googleplus"></ion-icon></button>
+      </ion-fab-list>
+    </ion-fab>
+
+  <!-- 第三方分享 -->
+<ion-fab left bottom>
+  <button ion-fab color="danger"><ion-icon name="md-share"></ion-icon></button>
+  <ion-fab-list side="top">
+      <button ion-fab>
+          <img src="assets/imgs/share/more.png" alt="">
+        </button>
+    <button ion-fab (tap)="shareWxTimeLine()">
+      <img src="assets/imgs/share/wechat.png" alt="">
+    </button>
+    <button ion-fab (tap)="shareWxSession()">
+        <img src="assets/imgs/share/friend.png" alt="">
+    </button>
+    <button ion-fab (tap)="shareWb()">
+        <img src="assets/imgs/share/weibo.png" alt="">
+    </button>
+    <button ion-fab (tap)="shareQZone()">
+        <img src="assets/imgs/share/qzone.png" alt="">
+    </button>
+    <button ion-fab (tap)="fnShareNews()">
+        <img src="assets/imgs/share/qq.png" alt="">
+    </button>
+  </ion-fab-list> 
+</ion-fab>
+
+
+
+
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <ion-title>Footer</ion-title>
+    </ion-toolbar>
+</ion-footer>
