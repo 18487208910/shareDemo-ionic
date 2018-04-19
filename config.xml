@@ -82,13 +82,13 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-qqsdk" spec="^0.9.7">
-        <variable name="QQ_APP_ID" value="1106741656" />
+        <variable name="QQ_APP_ID" value="11xxxxxx" />
     </plugin>
     <plugin name="cordova-plugin-weibosdk" spec="^0.6.3">
-        <variable name="WEIBO_APP_ID" value="3267829870" />
+        <variable name="WEIBO_APP_ID" value="xxxxx" />
     </plugin>
     <plugin name="cordova-plugin-wechat" spec="^2.1.0">
-        <variable name="WECHATAPPID" value="wx0b72cb3e05bfd43f" />
+        <variable name="WECHATAPPID" value="wxxxxxxxxxx" />
     </plugin>
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-filechooser" spec="^1.0.1" />
